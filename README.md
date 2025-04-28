@@ -1,5 +1,7 @@
 🎬 Movie Recommender System using Machine Learning
+
 A content-based movie recommender system built with Machine Learning techniques using the TMDB dataset.
+
 This project predicts and suggests movies similar to the user's selected movie based on key features such as genres, cast, crew, and keywords.
 
 
