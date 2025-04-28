@@ -1,67 +1,69 @@
-# Movie-Recommendation-System
-
-**Project Overview**
-
-This project focuses on building a Movie Recommendation System that recommends movies based on content similarity. By utilizing **Count Vectorizer** to extract features from movie descriptions (plot, genres, cast, etc.) and **Cosine Similarity **to measure the similarity between movies, the system suggests movies that are most similar to a given movie.
-
-**Features**
-
-1. Preprocessing of movie metadata (such as plot, cast, genre)
-2. Feature extraction using Count Vectorizer (Bag of Words)
-3. Similarity calculation using Cosine Similarity
-4. Movie recommendation based on content similarity
-
-**Dataset**
-
-The dataset used contains information about movies, including:
-Id
-Title (The title of the movie)
-Genres (The genre(s) of the movie)
-Overview (A brief description of the movie plot)
-Popularity
-Release-Date
-Vote-Average
-Vote-Count
-
-**Requirements**
-
-The following libraries are required to run the project:
-1. Python 
-2. numpy (for numerical computations)
-3. pandas (for handling data frames)
-4. scikit-learn (for count vectorization and similarity computation)
-5. nltk (for natural language processing tasks)
-
-**Project Structure:**
-
-**Preprocessing**
-1. Data Cleaning:
-   (i) Remove missing or invalid data.
-   (ii) Standardize text data (lowercasing, removing special characters, etc.)
-   
-3. Feature Engineering:
-   (i) Combine relevant features like genres, overview, keywords, and cast into a single metadata column for analysis.
-   (ii) Convert text-based features into numerical vectors using Count Vectorizer (Bag of Words model).
-
-   
-**Feature Extraction using Count Vectorizer**
-
-**Count Vectorizer** converts the textual data into a matrix of token counts, allowing the model to analyze the frequency of words in movie descriptions.
-
-This vectorized data is used to compare movies by measuring the Cosine Similarity between their feature vectors.
+# movie-recommender-system-tmdb-dataset
+A content based movie recommender system using cosine similarity
+🎬 Movie Recommender System using Machine Learning
+A content-based movie recommender system built with Machine Learning techniques using the TMDB dataset.
+This project predicts and suggests movies similar to the user's selected movie based on key features such as genres, cast, crew, and keywords.
 
 
-**Cosine Similarity** is a metric used to measure how similar two movies are based on their vectorized features. 
-
-**How the Movie Recommendation Works**
-
-1. Input: The user provides the title of a movie.
-2. Vectorization: The system vectorizes the movie metadata (such as the overview, genre, cast) using Count Vectorizer.
-3. Similarity Calculation: Using Cosine Similarity, the system compares the input movie with all other movies in the dataset.
-4. Recommendation: The system sorts the movies by similarity and recommends the top n most similar movies.
+📖 About the Project
+The goal is to create a recommendation engine that:
+Analyzes movie metadata (genres, cast, director, etc.).
+Computes movie-to-movie similarity scores.
+Recommends top movies based on similarity.
+This is a Content-Based Filtering recommender system — meaning it recommends movies based on the features of the movie selected.
 
 
-**Conclusion**
+🛠 Project Pipeline
+Data Collection
+Used TMDB dataset containing movie details (title, overview, genres, keywords, cast, crew).
 
-The system will recommend the top n movies based on their similarity to the input movie.
+Data Preprocessing
+Cleaning and combining important features into a single text.
+Handling missing values.
+Tokenization and Stemming (optional).
 
+Feature Extraction
+Created a bag of words using CountVectorizer.
+Transformed text data into numerical feature vectors.
+
+Similarity Computation
+Used Cosine Similarity to calculate similarity between movies.
+
+Recommendation System
+For a given movie, retrieve top 5 similar movies.
+
+
+💻 Tech Stack
+Python
+Pandas - for data manipulation
+Scikit-learn - for feature extraction and similarity calculation
+Streamlit - for building the web app
+Requests - for fetching movie posters using TMDB API
+
+
+🧠 Model Details
+Feature Engineering:
+Combined important columns: genres, keywords, cast, crew, overview.
+Processed into a single combined feature text.
+
+Vectorization:
+Used CountVectorizer (max_features=5000, stop_words='english').
+
+Similarity Measure:
+Applied Cosine Similarity between movie feature vectors.
+
+Recommendation:
+Retrieved top 5 movies based on highest cosine similarity scores.
+
+
+📈 Results
+Fast and accurate recommendations based purely on movie content.
+Display of movie posters for better visual appeal.
+Lightweight system suitable for further scaling.
+
+Here are some sample pictures:
+![image](https://github.com/user-attachments/assets/e6fc3c00-d3d7-4a51-bab9-9c7c5a2707e1)
+![image](https://github.com/user-attachments/assets/9e297990-487b-4928-a6e2-491d463bba73)
+
+
+The dataset link: https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
