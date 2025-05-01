@@ -1,83 +1,47 @@
-🎬 Movie Recommender System using Machine Learning
-A content-based movie recommender system built with Machine Learning techniques using the TMDB dataset.
+# 🎬 Movie Recommender System using Machine Learning
 
-This project predicts and suggests movies similar to the user's selected movie based on key features such as genres, cast, crew, and keywords.
+A **Content-Based Movie Recommender System** built with Machine Learning techniques using the TMDB dataset.  
+This project suggests movies similar to a user-selected title by analyzing movie metadata like genres, cast, crew, and keywords.
 
+---
 
-📖 About the Project
-The goal is to create a recommendation engine that:
+## 📖 About the Project
 
-Analyzes movie metadata (genres, cast, director, etc.).
+The goal of this project is to develop a machine learning-based recommendation engine that:
 
-Computes movie-to-movie similarity scores.
+- Analyzes movie metadata (genres, cast, director, keywords, etc.)
+- Computes similarity scores between movies
+- Recommends the most similar movies to the selected title
 
-Recommends top movies based on similarity.
+> This is a **Content-Based Filtering** system — recommendations are made based on the **features of the selected movie**, not user preferences.
 
-This is a Content-Based Filtering recommender system — meaning it recommends movies based on the features of the movie selected.
+---
 
+## 🛠 Project Pipeline
 
-🛠 Project Pipeline
-Data Collection
+### 🔹 1. Data Collection
+- Dataset: [TMDB Movie Metadata](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
+- Movie details include: `title`, `overview`, `genres`, `keywords`, `cast`, and `crew`
 
-Used TMDB dataset containing movie details (title, overview, genres, keywords, cast, crew).
+### 🔹 2. Data Preprocessing
+- Cleaned and combined relevant features into a single text string
+- Removed null/missing values
+- Optional: Tokenization and Stemming
 
-Data Preprocessing
+### 🔹 3. Feature Extraction
+- Created a **Bag of Words** model using `CountVectorizer`
+- Converted movie descriptions into numerical vectors
 
-Cleaning and combining important features into a single text.
+### 🔹 4. Recommendation System
+- For a selected movie, returns **Top 5** most similar movies based on cosine similarity scores
 
-Handling missing values.
+### 🔹 5. Deployment (Optional)
+- Built an interactive UI using **Streamlit**
 
-Tokenization and Stemming (optional).
+---
 
-Feature Extraction
+## 🧠 Model Details
 
-Created a bag of words using CountVectorizer.
-
-Transformed text data into numerical feature vectors.
-
-Similarity Computation
-
-Used Cosine Similarity to calculate similarity between movies.
-
-Recommendation System
-
-For a given movie, retrieve top 5 similar movies.
-
-Deployment (Optional)
-
-Built a simple web interface using Streamlit.
-
-
-🧠 Model Details
-Feature Engineering:
-
-Combined important columns: genres, keywords, cast, crew, overview.
-
-Processed into a single combined feature text.
-
-Vectorization:
-
-Used CountVectorizer (max_features=5000, stop_words='english').
-
-Similarity Measure:
-
-Applied Cosine Similarity between movie feature vectors.
-
-Recommendation:
-
-Retrieved top 5 movies based on highest cosine similarity scores.
-
-
-📈 Results
-Fast and accurate recommendations based purely on movie content.
-
-Display of movie posters for better visual appeal.
-
-Lightweight system suitable for further scaling.
-
-Here are some sample pictures:
-![image](https://github.com/user-attachments/assets/e6fc3c00-d3d7-4a51-bab9-9c7c5a2707e1)
-![image](https://github.com/user-attachments/assets/9e297990-487b-4928-a6e2-491d463bba73)
-
-
-The dataset link: https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
+### Feature Engineering
+- Combined columns: `genres`, `keywords`, `cast`, `crew`, and `overview`
+- Processed into a single descriptive text per movie
